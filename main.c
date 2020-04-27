@@ -10,6 +10,7 @@ int main(){
    scanf("%s",usr_zipcode);//Store user entered zipcode
    APIcall(usr_zipcode);//Make API call and generate a xml file with the location information
    readJson();
+
    DisplayData();
   int cases, next,initial;
    initial = 5;
@@ -78,8 +79,6 @@ int main(){
    
    
     return 0;
-    
-    
     
    
   
