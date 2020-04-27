@@ -4,6 +4,11 @@
 void APIcall(char *zipcode);
 void readJson();
 void DisplayData();
+void CheckWeather();
+void modeTemperature();
 void CalculateAverageTemp();
 void DisplayNext();
+void CalculateAverageTemp();
+void DisplayNext();
+
 #endif

@@ -150,7 +150,6 @@ void DisplayData()
 	 {
 	 	printf("%-25s", cI.forecastInformation[i].weatherDes);
 	 }
-
 	 
 	 printf("\nTemperature:    ");
 	   
@@ -170,8 +169,9 @@ void DisplayData()
 	 	printf("%-3.0f°C                    ", temp);
 	 }
 	 
+
 	 printf("\nHumidity:       ");
-	 
+
 	  for(int i=0;i<5;i++) //for loop to display contents of array
 	 {
 	 	printf("%-3i%%                     ", cI.forecastInformation[i].humidity);
@@ -199,10 +199,81 @@ void DisplayData()
 	 {
 	 	printf("%-3.0f°                     ", cI.forecastInformation[i].windDirection);
 	 }
-	 printf("\n");
-	
+
+	printf("\n");
 	
 }
+
+void CheckWeather() 
+{
+char weatherInput[10];
+char weatherArray[6][30] = {"clear sky","scattered clouds","broken clouds","overcast clouds",
+			"few clouds","light rain"};
+int x = 0;
+double temp;
+char tem;
+do{
+printf("\nHere are the six different weather: clear sky; scattered clouds; broken clouds;");
+printf("\novercast clouds; few clouds; light rain. Please select one for check: \n");
+scanf("%c",&tem);
+scanf("%[^\n]",weatherInput);
+for(int j = 0; j<6;j++) {
+	if(weatherInput[0]==weatherArray[j][0]) {
+		x = 1;	
+	for(int i=0;i<40;i++)
+	{
+	if(strcmp(cI.forecastInformation[i].weatherDes,weatherInput)==0){
+		printf("Date/Time:      ");
+		printf("%-25s", cI.forecastInformation[i].time);
+		printf("Weather:        ");
+		printf("%-25s", cI.forecastInformation[i].weatherDes);
+		printf("Temperature:    ");
+		temp = cI.forecastInformation[i].temperature;
+	 	temp = temp - 273.15; //convert kelvin to celsius
+	 	printf("%-3.0f°C                    \n", temp);
+	}
+}
+		}
+	}	
+if(x == 0) {
+printf("Sorry, can't figure out the input, please input again.");
+}
+}while(x==0);
+
+}
+
+void modeTemperature() {
+double temp;
+double modeTem;
+double tem[40];
+for(int i=0;i<40;i++){
+temp = cI.forecastInformation[i].temperature;
+temp = temp - 273.15;
+tem[i] = temp;
+}
+int maxValue = 0, maxCount = 0, i, j;
+
+   for (i = 0; i < 40; ++i) {
+      int count = 0;
+      
+      for (j = 0; j < 40; ++j) {
+         if (tem[j] == tem[i])
+         ++count;
+      }
+      
+      if (count > maxCount) {
+         maxCount = count;
+         maxValue = tem[i];
+      }
+   }
+
+   modeTem = maxValue;
+printf("The mode temperature is %-3.0f°C                    \n", modeTem);
+}
+	 printf("\n");
+
+}
+
 
 
 

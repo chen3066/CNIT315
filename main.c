@@ -12,6 +12,8 @@ int main(){
    readJson();
 
    DisplayData();
+
+
   int cases, next,initial;
    initial = 5;
    next = 10;
@@ -76,7 +78,6 @@ int main(){
    		
   	 
  	}while(cases != 7);
-   
    
     return 0;
     
