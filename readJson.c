@@ -133,7 +133,7 @@ void readJson(){
 
 }
 
-void DisplayData(int a)
+void DisplayData()
 {
 	 int i, tzone = 0;
 	 double temp;
